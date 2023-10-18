@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-
+import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({props}) => {
   const { id, location, imageSource, username, profile } = props;
 
+  const [liked, setLiked] = useState(false);
+  const toggleLiked = () => {
+    setLiked(!liked);
+  };
+
   return (
-    <div className="photo-list-item" key={id}>
+    <div className="photo-list__item" key={id}>
+      <PhotoFavButton onClick={toggleLiked} liked={liked} />
       <img
-        src={props.urls.regular}
-        alt={`Photo by ${username}`}
+        src={props.urls.regular} alt="Regular"
+        // alt={`Photo by ${username}`}
+        className="photo-list__image"
       />
-      <div className="photo-details">
-        <h3>{`Photo ${id}`}</h3>
-        <p>
-          <strong>Location:</strong> {props.location.city}, {props.location.country}
-        </p>
-        <p>
-          <strong>Username:</strong> {props.user.name}
-        </p>
-        <img src={props.profile} className="profile-image" />
+      <div className="photo-list__user-details">
+        <img
+          src={props.user.profile}
+          alt={`${username}'s profile`}
+          className="photo-list__user-profile"
+        />
+        <div className="photo-list__user-info-container">
+          <p className="photo-list__user-info">{props.user.name}</p>
+          <p className="photo-list__user-location">
+            {location.city}, {location.country}
+          </p>
+        </div>
       </div>
     </div>
   );
