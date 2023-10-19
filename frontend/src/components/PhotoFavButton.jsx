@@ -1,25 +1,30 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
+function PhotoFavButton(props) {
 
-  const [liked, setLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const updateFavorites = props.updateFavorites;
+  const photoID = props.photoID;
 
-  const toggleLiked = () => {
-    setLiked(!liked);
-    console.log('Favorite icon clicked!');
+  // Function to toggle the like status
+  const handleLike = useCallback(() => {
+    console.log(props);
+    console.log(`Before toggle: isLiked=${isLiked}`);
+    // setIsLiked((prevIsLiked) => !prevIsLiked);
+    setIsLiked(!isLiked);
+    console.log(`After toggle: isLiked=${!isLiked}`);
+    // setIsLiked(props.toggleFavourite);
+    props.updateFavorites(props.photo);
 
-  };
+  });
 
   return (
-    <div 
-      className={`photo-list__fav-icon ${liked ? 'liked' : ''}`}
-      onClick={toggleLiked}
-    >
+    <div className="photo-list__fav-icon" onClick={handleLike}>
       <div className="photo-list__fav-icon-svg">
-      <FavIcon selected={liked} />
+      <FavIcon selected={isLiked} />
       </div>
     </div>
   );

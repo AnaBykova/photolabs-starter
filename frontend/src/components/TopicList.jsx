@@ -5,11 +5,14 @@ import "../styles/TopicList.scss";
 
 const TopicList = () => {
   return (
-    <div className="top-nav-bar__topic-list">
-      {topics.map((topicData) => (
-        <TopicListItem key={topicData.id} props={topicData} />
+    <ul className="top-nav-bar__topic-list">
+      {topics.map((topic) => (
+        <TopicListItem
+          key={topic.id}
+          title={topic.title}
+          slug={topic.slug} />
       ))}
-    </div>
+    </ul>
   );
 };
 

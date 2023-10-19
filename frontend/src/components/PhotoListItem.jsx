@@ -2,36 +2,36 @@ import React, { useState } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({props}) => {
-  const { id, location, imageSource, username, profile } = props;
+const PhotoListItem = (props) => {
+  const { urls, user, location } = props.data;
 
-  const [liked, setLiked] = useState(false);
-  const toggleLiked = () => {
-    setLiked(!liked);
+  const handleImageClick = () => {
+    // Pass the selected photo details to the parent component and open the modal
+    props.openModal({
+      urls,
+      user,
+      location
+    });
   };
-
+    
   return (
-    <div className="photo-list__item" key={id}>
-      <PhotoFavButton onClick={toggleLiked} liked={liked} />
-      <img
-        src={props.urls.regular} alt="Regular"
-        // alt={`Photo by ${username}`}
-        className="photo-list__image"
-      />
+    <li className="photo-list__item">
+      <PhotoFavButton PhotoID={props.PhotoID} updateFavorites={props.updateFavorites} />
+      <img className="photo-list__image" onClick={handleImageClick} src={urls.regular} alt={`Photo by ${user.username}`} />
+      
       <div className="photo-list__user-details">
         <img
-          src={props.user.profile}
-          alt={`${username}'s profile`}
           className="photo-list__user-profile"
+          src={user.profile}
+          alt={`${user.username}'s profile`}          
         />
         <div className="photo-list__user-info-container">
-          <p className="photo-list__user-info">{props.user.name}</p>
-          <p className="photo-list__user-location">
-            {location.city}, {location.country}
-          </p>
+          <h3 className="photo-list__user-info">{user.username}</h3>
+          <p className="photo-list__user-location">{location.city}, {location.country}</p>
         </div>
       </div>
-    </div>
+    
+    </li>
   );
 };
 
