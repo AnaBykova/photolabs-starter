@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 //import TopicList from 'components/TopicList';
 //import TopNavigationBar from './components/TopNavigationBar';
 import HomeRoute from 'routes/HomeRoute';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from 'mocks/photos';
 
 import './App.scss';
@@ -27,7 +28,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute />
+      <HomeRoute openModal={openModal}/>
+      {isModalOpen && selectedPhoto && (
+        <PhotoDetailsModal isOpen={isModalOpen} onClose={closeModal} photo={selectedPhoto} photos={photos}/>
+      )}
     </div>
   )
 };
