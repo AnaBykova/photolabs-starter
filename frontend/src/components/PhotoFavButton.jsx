@@ -18,8 +18,12 @@ function PhotoFavButton(props) {
     updateFavorites(props.photo);
   });
 
+  useEffect(() => {
+    console.log({ isLiked });
+  }, [isLiked]);
+
   return (
-    <div className="photo-list__fav-icon" onClick={handleLike}>
+    <div className="photo-list__fav-icon" onClick={handleLike} >
       <div className="photo-list__fav-icon-svg">
         <FavIcon displayAlert={false} selected={isLiked} />
       </div>

@@ -10,7 +10,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigationBar hasFavorites = {props.hasFavorites}/>
-      <PhotoList  updateFavorites={props.updateFavorites} openModal = {props.openModal} isFav={props.isFav}/>
+      <PhotoList updateFavorites={props.updateFavorites} openModal = {props.openModal} isFav={props.isFav}/>
     </div>
   );
 };
