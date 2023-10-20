@@ -13,18 +13,15 @@ function PhotoFavButton(props) {
   const handleLike = useCallback(() => {
     console.log(props);
     console.log(`Before toggle: isLiked=${isLiked}`);
-    // setIsLiked((prevIsLiked) => !prevIsLiked);
     setIsLiked(!isLiked);
     console.log(`After toggle: isLiked=${!isLiked}`);
-    // setIsLiked(props.toggleFavourite);
     props.updateFavorites(props.photo);
-
   });
 
   return (
     <div className="photo-list__fav-icon" onClick={handleLike}>
       <div className="photo-list__fav-icon-svg">
-      <FavIcon selected={isLiked} />
+        <FavIcon displayAlert={false} selected={isLiked} />
       </div>
     </div>
   );

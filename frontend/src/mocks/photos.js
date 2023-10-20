@@ -185,44 +185,75 @@ const photo10 = {
 const photos = [
   {
     ...photo1,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo2,
+      photo3,
+    }
   },
   {
     ...photo2,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo6,
+      photo5,
+    }
     
   },
   {
     ...photo3,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo3,
+      photo4,
+    }
   },
   {
     ...photo4,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo8,
+      photo5,
+    }
   },
   {
     ...photo5,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo9,
+      photo1,
+    }
   },
   {
     ...photo6,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo10,
+      photo4,
+    },
   },
   {
     ...photo7,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo1,
+      photo3,
+    }
   },
   {
     ...photo8,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo2,
+      photo3,
+    }
   },
   {
     ...photo9,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo6,
+      photo7,
+    }
   },
   {
     ...photo10,
-    similar_photos: ['2', '3', '4', '5'],
+    similar_photos: {
+      photo8,
+      photo3,
+      photo4,
+    }
   }
 ]
 

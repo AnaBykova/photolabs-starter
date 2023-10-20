@@ -1,15 +1,10 @@
 import React, {useState} from 'react';
 
-//import PhotoList from './components/PhotoList';
-//import TopicList from 'components/TopicList';
-//import TopNavigationBar from './components/TopNavigationBar';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from 'mocks/photos';
 
 import './App.scss';
-
-
 
 const App = () => {
   
@@ -30,10 +25,14 @@ const App = () => {
     <div className="App">
       <HomeRoute openModal={openModal}/>
       {isModalOpen && selectedPhoto && (
-        <PhotoDetailsModal isOpen={isModalOpen} onClose={closeModal} photo={selectedPhoto} photos={photos}/>
+        <PhotoDetailsModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          selectedPhoto={selectedPhoto}
+          photos={selectedPhoto.similar_photos}/>
       )}
     </div>
-  )
+  );
 };
 
 export default App;
