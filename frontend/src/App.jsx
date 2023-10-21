@@ -11,8 +11,8 @@ const App = () => {
 
   const {
     mainPagePhotos,
-    onLoadTopic,
-    onLoadPhoto,
+    topicData,
+    photoData,
     favouritePhotos,
     setFavouritePhotos,
     isModalActive,
@@ -28,8 +28,8 @@ const App = () => {
 
       <HomeRoute
         mainPagePhotos={mainPagePhotos}
-        data={onLoadPhoto}
-        topics={onLoadTopic}
+        data={photoData}
+        topics={topicData}
         favouritePhotos={favouritePhotos}
         setFavouritePhotos={setFavouritePhotos}
         isModalActive={isModalActive}

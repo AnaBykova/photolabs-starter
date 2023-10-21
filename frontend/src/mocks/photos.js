@@ -195,37 +195,37 @@ const photos = [
   {
     ...photo2,
     similarPhotos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
+      photo10,
+      photo9,
+      photo8,
+      photo7,
     }
   },
   {
     ...photo3,
     similarPhotos: {
-      photo2,
-      photo3,
-      photo4,
+      photo6,
       photo5,
+      photo4,
+      photo3,
     }
   },
   {
     ...photo4,
     similarPhotos: {
       photo2,
-      photo3,
-      photo4,
-      photo5,
+      photo10,
+      photo1,
+      photo9,
     }
   },
   {
     ...photo5,
     similarPhotos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
+      photo8,
+      photo7,
+      photo6,
+      photo1,
     }
   },
   {
@@ -240,17 +240,17 @@ const photos = [
   {
     ...photo7,
     similarPhotos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
+      photo8,
+      photo9,
+      photo10,
+      photo1,
     }
   },
   {
     ...photo8,
     similarPhotos: {
       photo2,
-      photo3,
+      photo1,
       photo4,
       photo5,
     }
@@ -267,8 +267,8 @@ const photos = [
   {
     ...photo10,
     similarPhotos: {
-      photo2,
       photo3,
+      photo7,
       photo4,
       photo5,
     }
