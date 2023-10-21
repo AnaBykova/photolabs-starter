@@ -1,23 +1,26 @@
 import React from "react";
-import PhotoListItem from "./PhotoListItem";
-import photos from "mocks/photos";
 import "../styles/PhotoList.scss";
+import PhotoListItem from "./PhotoListItem";
+import photosInfo from "./../../src/mocks/photos";
+
 
 const PhotoList = (props) => {
+  const photosInfo = props.data;
+
   return (
     <ul className="photo-list">
-      {photos.map((photoData) => (
-        <PhotoListItem
-          key={photoData.id}
-          photoID={photoData.id}
-          data={photoData}
-          updateFavorites={props.updateFavorites}
-          openModal={props.openModal}
-          similar_photos={props.similar_photos}
-        />
-      ))}
+   
+      {photosInfo.map(data => <PhotoListItem key={data.id}
+        data={data}
+        favouritePhotos={props.favouritePhotos}
+        setFavouritePhotos={props.setFavouritePhotos}
+        clickedPhotoData={props.clickedPhotoData}
+        setClickedPhotoData={props.setClickedPhotoData}
+        isModalActive={props.isModalActive}
+        setIsModalActive={props.setIsModalActive}
+        imgClass={props.imgClass}
+      />)}
     </ul>
   );
 };
-
 export default PhotoList;

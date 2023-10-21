@@ -1,43 +1,39 @@
 import React, { useState } from "react";
+
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
-  const { urls, user, location } = props.data;
 
-  const handleImageClick = () => {
-    // Pass the selected photo details to the parent component and open the modal
-    props.openModal({
-      urls,
-      user,
-      location
-    });
-  };
-    
+const PhotoListItem = (props) => {
+  
+  const [selected, setSelected] = useState(props.favouritePhotos.includes(props.data.id));
+
   return (
-    <li className="photo-list__item">
-      <PhotoFavButton PhotoID={props.PhotoID} updateFavorites={props.updateFavorites} />
-      <div className="photo-list__image-container">
-        <img
-          className="photo-list__image"
-          onClick={handleImageClick}
-          src={urls.regular}
-          alt={`Photo by ${user.name}`} />
-        <div className="photo-list__user-details">
-          <img
-            className="photo-list__user-profile"
-            src={user.profile}
-            alt={`${user.username}'s profile`}
-          />
-          <div className="photo-list__user-info-container">
-            <h3 className="photo-list__user-info">{user.name}</h3>
-            <p className="photo-list__user-location">{location.city}, {location.country}</p>
-          </div>
-        </div>
+    <div className={props.imgClass.divClass}
+      key={props.data.id}>
+      <PhotoFavButton
+        favPhoto={props.favouritePhotos}
+        setFav={props.setFavouritePhotos}
+        photoData={props.data}
+        selected={selected}
+        setSelected={setSelected}
+      />
+      <img
+        className={props.imgClass.imgClass}
+        src={props.data.urls.full}
+        alt={props.data.id}
+        onClick={() => {
+          props.setIsModalActive(true);
+          props.setClickedPhotoData(props.data);
+        }}/>
+      <div className={props.imgClass.userDivClass}>
+        <img className={props.imgClass.profileImg} src={props.data.user.profile} alt={props.data.user.username} />
+        <span className={props.imgClass.profileInfo}>
+          {props.data.user.name}
+          <p className={props.imgClass.profileLocation}>{props.data.location.city}, {props.data.location.country}</p>
+        </span>
       </div>
-    
-    </li>
+    </div>
   );
 };
-
 export default PhotoListItem;

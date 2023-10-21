@@ -15,13 +15,13 @@
   object-fit: cover;
 }
 
-.photo-list__image {
+/*.photo-list__image {
   border-radius: 8px 8px 0px 0px;
   user-select: none;
   width: 300px;
   height: 200px;
   object-fit: cover;
-}
+}*/
 
 .photo-list__user-profile {
   object-fit: cover;
@@ -45,4 +45,5 @@
 
 .photo-list__user-location {
   color: #838383;
+  margin-top: 1px;
 }

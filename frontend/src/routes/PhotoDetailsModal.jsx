@@ -1,81 +1,55 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoListItem from 'components/PhotoListItem';
+// import PhotoListItem from 'components/PhotoListItem';
 
-const PhotoDetailsModal = ({ isOpen, onClose, selectedPhoto, updateFavorites }) => {
 
-  useEffect(() => {
-    // Log the photo details when the modal opens
-    if (isOpen && selectedPhoto) {
-      console.log('Selected Photo Info:', selectedPhoto);
-    }
-  }, [isOpen, selectedPhoto]);
+const PhotoDetailsModal = (props) => {
+  console.log(props);
 
-  const renderSimilarPhotos = () => {
-    if (!isOpen || !selectedPhoto || !selectedPhoto.similar_photos) {
-      return null;
-    }
-
-    return (
-      <div className="photo-details-modal__similar-photos">
-        <h2>Similar Photos</h2>
-        <div className="photo-details-modal__similar-photos-list">
-          {selectedPhoto.similar_photos.map((similarPhoto) => {
-            return (
-              <div key={similarPhoto.id} className="similar-photo">
-                <img src={similarPhoto.urls.regular} alt={similarPhoto.title} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
+  // Class Names for Image on Modal Page
+  const modalPagePhotos = {
+    divClass: "photo-list__item",
+    imgClass: "photo-details-modal__image",
+    userDivClass: "photo-details-modal__photographer-details",
+    profileImg: "photo-details-modal__photographer-profile",
+    profileInfo: "photo-details-modal__photographer-info",
+    profileLocation: "photo-details-modal__photographer-location",
+    listClass: "photo-details-modal__top-bar"
   };
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    props.setIsModalActive(false);
+  };
   return (
-    <div className={`photo-details-modal ${isOpen ? 'open' : ''}`}>
-      <button className="photo-details-modal__close-button" onClick={onClose}>
+    <div className="photo-details-modal"
+      style={{display: props.isModalActive ? 'inherit' : 'none'}}>
+      <button className="photo-details-modal__close-button" onClick={handleClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
+      {props.isModalActive && <>
 
-      <div className="photo-details-modal__header">
-        {selectedPhoto.urls?.full && (
-          <img
-            className="photo-details-modal__images"
-            src={selectedPhoto.urls.full}
-            alt={selectedPhoto.title}
+        <PhotoListItem
+          data={props.clickedPhotoData}
+          imgClass={modalPagePhotos}
+          favouritePhotos={props.favouritePhotos}
+          setFavouritePhotos={props.setFavouritePhotos}/>
+
+        <h5 className="photo-details-modal__header">Similar Photos</h5>
+        <ul className="photo-details-modal__top-bar">
+          <PhotoList
+            data={Object.values(props.clickedPhotoData.similarPhotos)}
+            imgClass={props.imgClass}
+            favouritePhotos={props.favouritePhotos}
+            setFavouritePhotos={props.setFavouritePhotos}
           />
-        )}
-        <div className="photo-details-modal__photographer-details">
-          {selectedPhoto.user?.profile && (
-            <img
-              className="photo-list__user-profile"
-              src={selectedPhoto.user.profile}
-              alt={`${selectedPhoto.user.username}'s profile`}
-            />
-          )}
-          <div className="photo-list__user-info-container">
-            <h3 className="photo-list__user-info">{selectedPhoto.user?.name}</h3>
-            {selectedPhoto.location?.city && (
-              <h3 className="photo-list__user-location">
-                {selectedPhoto.location.city}, {selectedPhoto.location.country}
-              </h3>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {renderSimilarPhotos()}
-
-      <PhotoList
-        photos={selectedPhoto.similar_photos || []}
-        updateFavorites={updateFavorites} // Ensure this is passed correctly
-        isOpen={isOpen} // Ensure this is passed correctly
-      />
+        </ul>
+      </>
+      }
     </div>
   );
 };
-
 export default PhotoDetailsModal;

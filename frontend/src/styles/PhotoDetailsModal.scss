@@ -9,6 +9,7 @@
   width: 55%;
   overflow-y: scroll;
   border-radius: 12px;
+  margin-left: auto;
 }
 
 .photo-details-modal__close-button {
@@ -30,7 +31,7 @@
 }
 
 .photo-details-modal__image {
-  max-width: 95%;
+  max-width: 100%;
   border-radius: 8px;
 }
 
@@ -55,10 +56,12 @@
   margin-top: 24px;
   margin-bottom: 24px;
   width: 90%;
+  margin-left: 24px;
 }
 
 .photo-details-modal__photographer-location {
   color: #838383;
+  margin-top: 1px;
 }
 .photo-details-modal__photographer-profile {
   object-fit: cover;

@@ -1,44 +1,44 @@
-import React, {useState} from 'react';
-
-import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import useApplicationData from 'hooks/useApplicationData';
-
-import photos from 'mocks/photos';
+import React from 'react';
 
 import './App.scss';
+import HomeRoute from 'routes/HomeRoute';
+import useApplicationData from "hooks/useApplicationData";
 
+
+
+// Note: Rendering a single component to build components in isolation
 const App = () => {
-  
+
   const {
-    state,
-    updateToFavPhotoIds,
-    setPhotoSelected,
-    onClosePhotoDetailsModal,
+    mainPagePhotos,
+    onLoadTopic,
+    onLoadPhoto,
+    favouritePhotos,
+    setFavouritePhotos,
+    isModalActive,
+    setIsModalActive,
+    clickedPhotoData,
+    setClickedPhotoData,
   } = useApplicationData();
 
-  const hasFavorites = () => {
-    return state.isFav.length > 0;
-  };
+  // console.log(onLoadTopic);
 
   return (
     <div className="App">
+
       <HomeRoute
-        openModal={setPhotoSelected}
-        hasFavorites={hasFavorites}
-        updateFavorites={updateToFavPhotoIds}/>
-      
-      {state.isModalOpen && state.selectedPhoto && (
-        <PhotoDetailsModal
-          isOpen={state.isModalOpen}
-          onClose={onClosePhotoDetailsModal}
-          selectedPhoto={state.selectedPhoto}
-          updateFavorites={updateToFavPhotoIds}
-          photos={photos}
-        />
-      )}
+        mainPagePhotos={mainPagePhotos}
+        data={onLoadPhoto}
+        topics={onLoadTopic}
+        favouritePhotos={favouritePhotos}
+        setFavouritePhotos={setFavouritePhotos}
+        isModalActive={isModalActive}
+        setIsModalActive={setIsModalActive}
+        clickedPhotoData={clickedPhotoData}
+        setClickedPhotoData={setClickedPhotoData}
+      />
+
     </div>
   );
 };
-
 export default App;

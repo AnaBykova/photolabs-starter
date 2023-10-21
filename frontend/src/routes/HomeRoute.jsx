@@ -1,18 +1,41 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import '../styles/HomeRoute.scss';
+import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import TopNavigationBar from 'components/TopNavigationBar';
-import photos from 'mocks/photos';
+import PhotoDetailsModal from './PhotoDetailsModal';
 
 const HomeRoute = (props) => {
 
+
   return (
     <div className="home-route">
-      <TopNavigationBar hasFavorites = {props.hasFavorites}/>
-      <PhotoList updateFavorites={props.updateFavorites} openModal = {props.openModal} isFav={props.isFav}/>
+
+      <TopNavigation
+        favouritePhotos={props.favouritePhotos}
+        topics={props.topics}
+      />
+
+      <PhotoList
+        imgClass={props.mainPagePhotos}
+        setFavouritePhotos={props.setFavouritePhotos}
+        favouritePhotos={props.favouritePhotos}
+        isModalActive={props.isModalActive}
+        setIsModalActive={props.setIsModalActive}
+        clickedPhotoData={props.clickedPhotoData}
+        setClickedPhotoData={props.setClickedPhotoData}
+        data={props.data}/>
+
+      <PhotoDetailsModal
+        isModalActive={props.isModalActive}
+        setIsModalActive={props.setIsModalActive}
+        favouritePhotos={props.favouritePhotos}
+        setFavouritePhotos={props.setFavouritePhotos}
+        clickedPhotoData={props.clickedPhotoData}
+        setClickedPhotoData={props.setClickedPhotoData}
+        imgClass={props.mainPagePhotos}
+      />
     </div>
   );
 };
-
 export default HomeRoute;
