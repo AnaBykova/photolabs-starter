@@ -1,19 +1,16 @@
 import React, { useCallback } from 'react';
-
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  // const [selected, setSelected] = useState(false);
+
+  // Check if photo is already in list
+  const infavPhoto = props.favPhoto.includes(props.photoData.id);
 
   const handleClick = useCallback(() => {
 
-    props.setSelected(prevState => !prevState);
 
-    // Check if photo is already in list
-    const infavPhoto = props.favPhoto.includes(props.photoData.id);
-    
     {!infavPhoto ? props.setFav([...props.favPhoto, props.photoData.id])
       : props.setFav([...props.favPhoto].filter(id => id !== props.photoData.id));
     }
@@ -22,8 +19,8 @@ const PhotoFavButton = (props) => {
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        
-        <FavIcon selected={props.selected} />
+        {/* Insert React */}
+        <FavIcon selected={infavPhoto} />
 
       </div>
     </div>

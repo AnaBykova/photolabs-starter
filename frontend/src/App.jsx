@@ -3,7 +3,7 @@ import React from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import useApplicationData from "hooks/useApplicationData";
-
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
 // Note: Rendering a single component to build components in isolation
@@ -21,7 +21,7 @@ const App = () => {
     setClickedPhotoData,
   } = useApplicationData();
 
-  // console.log(onLoadTopic);
+
 
   return (
     <div className="App">
@@ -38,6 +38,15 @@ const App = () => {
         setClickedPhotoData={setClickedPhotoData}
       />
 
+      <PhotoDetailsModal
+        isModalActive={isModalActive}
+        setIsModalActive={setIsModalActive}
+        favouritePhotos={favouritePhotos}
+        setFavouritePhotos={setFavouritePhotos}
+        clickedPhotoData={clickedPhotoData}
+        setClickedPhotoData={setClickedPhotoData}
+        imgClass={mainPagePhotos}
+      />
     </div>
   );
 };

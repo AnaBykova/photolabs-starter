@@ -9,16 +9,16 @@ const PhotoList = (props) => {
 
   return (
     <ul className="photo-list">
-   
+      {/* Insert React */}
       {photosInfo.map(data => <PhotoListItem key={data.id}
         data={data}
+        imgClass={props.imgClass}
         favouritePhotos={props.favouritePhotos}
         setFavouritePhotos={props.setFavouritePhotos}
         clickedPhotoData={props.clickedPhotoData}
         setClickedPhotoData={props.setClickedPhotoData}
         isModalActive={props.isModalActive}
         setIsModalActive={props.setIsModalActive}
-        imgClass={props.imgClass}
       />)}
     </ul>
   );
