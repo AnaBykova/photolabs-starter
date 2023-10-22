@@ -7,10 +7,10 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      {/* Insert React */}
       <TopNavigation
         favouritePhotos={props.favouritePhotos}
         topics={props.topics}
+        handleTopicClick={props.handleTopicClick}
       />
       <PhotoList
         imgClass={props.mainPagePhotos}
@@ -20,7 +20,8 @@ const HomeRoute = (props) => {
         setIsModalActive={props.setIsModalActive}
         clickedPhotoData={props.clickedPhotoData}
         setClickedPhotoData={props.setClickedPhotoData}
-        data={props.data}/>
+        data={props.data}
+      />
 
     </div>
   );

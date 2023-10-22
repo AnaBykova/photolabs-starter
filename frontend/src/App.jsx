@@ -1,31 +1,24 @@
 import React from 'react';
-
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import useApplicationData from "hooks/useApplicationData";
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from "hooks/useApplicationData";
 
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-
+  
   const {
-    mainPagePhotos,
-    topicData,
-    photoData,
-    favouritePhotos,
-    setFavouritePhotos,
-    isModalActive,
-    setIsModalActive,
-    clickedPhotoData,
-    setClickedPhotoData,
+    mainPagePhotos, topicData,
+    photoData, favouritePhotos,
+    setFavouritePhotos, isModalActive,
+    setIsModalActive, clickedPhotoData,
+    setClickedPhotoData, setPhotoData,
+    setTopicData, handleTopicClick
   } = useApplicationData();
-
 
 
   return (
     <div className="App">
-
       <HomeRoute
         mainPagePhotos={mainPagePhotos}
         data={photoData}
@@ -36,6 +29,9 @@ const App = () => {
         setIsModalActive={setIsModalActive}
         clickedPhotoData={clickedPhotoData}
         setClickedPhotoData={setClickedPhotoData}
+        setPhotoData={setPhotoData}
+        setTopicData={setTopicData}
+        handleTopicClick={handleTopicClick}
       />
 
       <PhotoDetailsModal
@@ -45,6 +41,7 @@ const App = () => {
         setFavouritePhotos={setFavouritePhotos}
         clickedPhotoData={clickedPhotoData}
         setClickedPhotoData={setClickedPhotoData}
+        setPhotoData={setPhotoData}
         imgClass={mainPagePhotos}
       />
     </div>

@@ -24,12 +24,15 @@ const PhotoDetailsModal = (props) => {
     e.preventDefault();
     props.setIsModalActive(false);
   };
+
   return (
     <div className="photo-details-modal"
       style={{display: props.isModalActive ? 'inherit' : 'none'}}>
+
       <button className="photo-details-modal__close-button" onClick={handleClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
+
       {props.isModalActive && <>
 
         <PhotoListItem
@@ -39,9 +42,10 @@ const PhotoDetailsModal = (props) => {
           setFavouritePhotos={props.setFavouritePhotos}/>
 
         <h5 className="photo-details-modal__header">Similar Photos</h5>
+
         <ul className="photo-details-modal__top-bar">
           <PhotoList
-            data={Object.values(props.clickedPhotoData.similarPhotos)}
+            data={Object.values(props.clickedPhotoData.similar_photos)}
             imgClass={props.imgClass}
             favouritePhotos={props.favouritePhotos}
             setFavouritePhotos={props.setFavouritePhotos}
@@ -52,4 +56,5 @@ const PhotoDetailsModal = (props) => {
     </div>
   );
 };
+
 export default PhotoDetailsModal;
