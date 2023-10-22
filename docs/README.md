@@ -4,19 +4,19 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 
 - A user can view photos from the homepage loaded from the API.\
 
-
+![MainPage](https://github.com/AnaBykova/photolabs-starter/blob/main/docs/mainPage.PNG)
 
 - The user can navigate to different photo categories, also called topics.\
 
-
+![Topics](https://github.com/AnaBykova/photolabs-starter/blob/main/docs/topics.PNG)
 
 - The user can click on a photo to view a larger version of the photo and relevant / similar photos.\
 
-
+![LargerVersion](https://github.com/AnaBykova/photolabs-starter/blob/main/docs/largerVersion.PNG)
 
 - The user can like a photo from anywhere within the application where the photo is displayed and view a heart icon with a notification in the navigation if there are liked photos.\
 
-
+![LikedPhotos](https://github.com/AnaBykova/photolabs-starter/blob/main/docs/likedPhotos.PNG)
 
 
 ## Setup
