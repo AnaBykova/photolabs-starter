@@ -23,12 +23,6 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
-## [Frontend] Running Webpack Development Server
-
-```sh
-cd frontend
-npm start
-```
 
 ## [Backend] Running Backend Servier
 
@@ -36,5 +30,12 @@ Read `backend/readme` for further setup details.
 
 ```sh
 cd backend
+npm start
+```
+
+## [Frontend] Running Webpack Development Server
+
+```sh
+cd frontend
 npm start
 ```
