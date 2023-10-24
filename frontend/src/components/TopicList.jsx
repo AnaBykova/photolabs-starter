@@ -1,6 +1,7 @@
 import React from "react";
-import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
+
+import "../styles/TopicList.scss";
 
 const TopicList = (props) => {
   
@@ -12,5 +13,7 @@ const TopicList = (props) => {
         handleTopicClick={props.handleTopicClick}/>)}
     </div>
   );
+
 };
+
 export default TopicList;

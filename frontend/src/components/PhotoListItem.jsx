@@ -1,6 +1,7 @@
 import React from "react";
-import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+
+import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
 
@@ -17,6 +18,7 @@ const PhotoListItem = (props) => {
         setFav={props.setFavouritePhotos}
         photoData={props.data}
       />
+
       <img
         className={props.imgClass.imgClass}
         src={props.data.urls.full}
@@ -27,12 +29,16 @@ const PhotoListItem = (props) => {
         <img className={props.imgClass.profileImg}
           src={props.data.user.profile}
           alt={props.data.user.username} />
+
         <span className={props.imgClass.profileInfo}>
           {props.data.user.name}
           <p className={props.imgClass.profileLocation}>{props.data.location.city}, {props.data.location.country}</p>
         </span>
       </div>
+
     </div>
   );
+  
 };
+
 export default PhotoListItem;

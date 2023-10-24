@@ -1,9 +1,11 @@
 import React from 'react';
-import '../styles/TopNavigationBar.scss';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
+import '../styles/TopNavigationBar.scss';
+
 const TopNavigation = (props) => {
+
   const isFavPhotoExist = props.favouritePhotos.length > 0;
 
   return (
@@ -15,5 +17,7 @@ const TopNavigation = (props) => {
       <FavBadge isFavPhotoExist={isFavPhotoExist}/>
     </div>
   );
+
 };
+
 export default TopNavigation;

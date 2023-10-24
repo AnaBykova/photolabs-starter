@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoListItem from 'components/PhotoListItem';
-// import PhotoListItem from 'components/PhotoListItem';
+
+import '../styles/PhotoDetailsModal.scss';
 
 
 const PhotoDetailsModal = (props) => {
@@ -55,6 +55,7 @@ const PhotoDetailsModal = (props) => {
       }
     </div>
   );
+  
 };
 
 export default PhotoDetailsModal;

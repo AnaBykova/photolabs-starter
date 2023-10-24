@@ -1,10 +1,11 @@
 import React from "react";
-import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
-//import photosInfo from "./../../src/mocks/photos";
+
+import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => {
+
   const photosInfo = props.data;
 
   return (
@@ -21,5 +22,7 @@ const PhotoList = (props) => {
       />)}
     </ul>
   );
+
 };
+
 export default PhotoList;

@@ -13,21 +13,15 @@ const GET_PHOTOS_BY_TOPICS = "GET_PHOTOS_BY_TOPICS";
 // Define the reducer function to manage state changes
 
 const reducer = (state, action) => {
+
   switch (action.type) {
-  case SET_FAVOURITE_PHOTOS:
-    return { ...state, favouritePhotos: action.payload };
-  case SET_IS_MODAL_ACTIVE:
-    return { ...state, isModalActive: action.payload };
-  case SET_CLICKED_PHOTO_DATA:
-    return { ...state, clickedPhotoData: action.payload };
-  case SET_PHOTO_DATA:
-    return { ...state, photoData: action.payload };
-  case SET_TOPIC_DATA:
-    return { ...state, topicData: action.payload };
-  case GET_PHOTOS_BY_TOPICS:
-    return { ...state, selectedTopicId: action.payload };
-  default:
-    return state;
+  case SET_FAVOURITE_PHOTOS: return { ...state, favouritePhotos: action.payload };
+  case SET_IS_MODAL_ACTIVE: return { ...state, isModalActive: action.payload };
+  case SET_CLICKED_PHOTO_DATA: return { ...state, clickedPhotoData: action.payload };
+  case SET_PHOTO_DATA: return { ...state, photoData: action.payload };
+  case SET_TOPIC_DATA: return { ...state, topicData: action.payload };
+  case GET_PHOTOS_BY_TOPICS: return { ...state, selectedTopicId: action.payload };
+  default: return state;
   }
 };
 
@@ -50,14 +44,10 @@ const useApplicationData = () => {
     selectedTopicId: null,
   };
 
-
   // Create a reducer and initialize state
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
   // useEffect request photo from Api
-
   const { selectedTopicId } = state;
   useEffect(() => {
     

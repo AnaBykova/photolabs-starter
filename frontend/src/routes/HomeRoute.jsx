@@ -1,7 +1,8 @@
 import React from 'react';
-import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
+
+import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
@@ -22,8 +23,9 @@ const HomeRoute = (props) => {
         setClickedPhotoData={props.setClickedPhotoData}
         data={props.data}
       />
-
     </div>
   );
+
 };
+
 export default HomeRoute;
