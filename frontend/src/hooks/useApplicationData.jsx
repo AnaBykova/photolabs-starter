@@ -44,6 +44,12 @@ const useApplicationData = () => {
     selectedTopicId: null,
   };
 
+  // HANDLE MODAL CLOSE
+  const handleClose = (e) => {
+    e.preventDefault();
+    setIsModalActive(false);
+  };
+
   // Create a reducer and initialize state
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -112,6 +118,7 @@ const useApplicationData = () => {
     setPhotoData,
     setTopicData,
     handleTopicClick,
+    handleClose,
   };
 };
 

@@ -7,7 +7,7 @@ import '../styles/PhotoDetailsModal.scss';
 
 
 const PhotoDetailsModal = (props) => {
-  console.log(props);
+  //console.log(props);
 
   // Class Names for Image on Modal Page
   const modalPagePhotos = {
@@ -29,7 +29,7 @@ const PhotoDetailsModal = (props) => {
     <div className="photo-details-modal"
       style={{display: props.isModalActive ? 'inherit' : 'none'}}>
 
-      <button className="photo-details-modal__close-button" onClick={handleClose}>
+      <button className="photo-details-modal__close-button" onClick={props.handleClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
@@ -37,7 +37,9 @@ const PhotoDetailsModal = (props) => {
 
         <PhotoListItem
           data={props.clickedPhotoData}
+          setClickedPhotoData={props.setClickedPhotoData}
           imgClass={modalPagePhotos}
+          setIsModalActive={props.setIsModalActive}
           favouritePhotos={props.favouritePhotos}
           setFavouritePhotos={props.setFavouritePhotos}/>
 
